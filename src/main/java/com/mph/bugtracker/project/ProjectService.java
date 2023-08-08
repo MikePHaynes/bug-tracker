@@ -24,11 +24,19 @@ public class ProjectService {
     }
 
     public Project getProjectById(Long id) {
-        return null;
+        return projectRepository.findById(id)
+                .orElseThrow(() -> new ProjectNotFoundException("Project not found with ID: " + id));
     }
 
-    public Project updateProjectById(Long id, Project project) {
-        return null;
+    public Project updateProjectById(Long id, Project updatedProject) {
+        Project existingProject = projectRepository.findById(id)
+                .orElseThrow(() -> new ProjectNotFoundException("Project not found with ID: " + id));
+
+        existingProject.setProjectName(updatedProject.getProjectName());
+        existingProject.setProjectDescription(updatedProject.getProjectDescription());
+
+        projectRepository.save(existingProject);
+        return existingProject;
     }
 
     public void deleteProjectById(Long id) {

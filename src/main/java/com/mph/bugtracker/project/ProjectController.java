@@ -38,8 +38,8 @@ public class ProjectController {
     @PutMapping("/{id}")
     public ResponseEntity<Project> updateProjectById(@PathVariable Long id,
                                                      @RequestBody Project project) {
-        Project updateProject = projectService.updateProjectById(id, project);
-        return ResponseEntity.ok(updateProject);
+        Project updatedProject = projectService.updateProjectById(id, project);
+        return ResponseEntity.ok(updatedProject);
     }
 
     @DeleteMapping("/{id}")
