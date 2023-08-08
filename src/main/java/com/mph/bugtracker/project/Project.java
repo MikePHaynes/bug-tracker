@@ -1,13 +1,14 @@
 package com.mph.bugtracker.project;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import com.mph.bugtracker.ticket.Ticket;
+import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+
+import java.time.LocalDateTime;
+import java.util.Set;
 
 @Data
 @Builder
@@ -19,4 +20,13 @@ public class Project {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+
+    private String projectName;
+
+    private String projectDescription;
+
+    @OneToMany(mappedBy = "project")
+    private Set<Ticket> tickets;
+
+    private LocalDateTime createdAt = LocalDateTime.now();
 }
