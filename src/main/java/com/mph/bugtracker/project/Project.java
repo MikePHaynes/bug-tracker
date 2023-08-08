@@ -8,6 +8,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDateTime;
+import java.util.HashSet;
 import java.util.Set;
 
 @Data
@@ -26,7 +27,7 @@ public class Project {
     private String projectDescription;
 
     @OneToMany(mappedBy = "project")
-    private Set<Ticket> tickets;
+    private Set<Ticket> tickets = new HashSet<>();
 
     private LocalDateTime createdAt = LocalDateTime.now();
 }
