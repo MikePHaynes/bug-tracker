@@ -26,7 +26,7 @@ public class Project {
 
     private String projectDescription;
 
-    @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE)
     private List<Ticket> tickets = new ArrayList<>();
 
     private LocalDateTime createdAt = LocalDateTime.now();
