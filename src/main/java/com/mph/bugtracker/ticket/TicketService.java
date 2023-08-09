@@ -7,8 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class TicketService {
@@ -33,7 +31,7 @@ public class TicketService {
         return ticketRepository.save(ticket);
     }
 
-    public Set<Ticket> getAllTickets(Long projectId) {
+    public List<Ticket> getAllTicketsByProjectId(Long projectId) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ProjectNotFoundException("Project not found with ID: " + projectId));
 

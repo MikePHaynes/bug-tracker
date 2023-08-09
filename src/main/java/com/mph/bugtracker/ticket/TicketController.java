@@ -4,7 +4,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
-import java.util.Set;
 
 @RestController
 @RequestMapping("/api/projects/{projectId}/tickets")
@@ -24,8 +23,8 @@ public class TicketController {
     }
 
     @GetMapping
-    public ResponseEntity<Set<Ticket>> getAllTicketsByProjectId(@PathVariable Long projectId) {
-        Set<Ticket> tickets = ticketService.getAllTickets(projectId);
+    public ResponseEntity<List<Ticket>> getAllTicketsByProjectId(@PathVariable Long projectId) {
+        List<Ticket> tickets = ticketService.getAllTicketsByProjectId(projectId);
         return ResponseEntity.ok(tickets);
     }
 
