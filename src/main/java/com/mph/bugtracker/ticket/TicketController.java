@@ -7,6 +7,7 @@ import java.util.List;
 
 @RestController
 @RequestMapping("/api/projects/{projectId}/tickets")
+@CrossOrigin("http://localhost:3000/")
 public class TicketController {
 
     private final TicketService ticketService;
