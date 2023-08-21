@@ -7,7 +7,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.time.LocalDateTime;
+import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -29,5 +29,5 @@ public class Project {
     @OneToMany(mappedBy = "project", cascade = CascadeType.REMOVE)
     private List<Ticket> tickets = new ArrayList<>();
 
-    private LocalDateTime createdAt = LocalDateTime.now();
+    private LocalDate creationDate = LocalDate.now();
 }
