@@ -23,6 +23,12 @@ public class TicketController {
         return ResponseEntity.ok(createdTicket);
     }
 
+    @GetMapping("/all")
+    public ResponseEntity<List<Ticket>> getAllTickets() {
+        List<Ticket> tickets = ticketService.getAllTickets();
+        return ResponseEntity.ok(tickets);
+    }
+
     @GetMapping
     public ResponseEntity<List<Ticket>> getAllTicketsByProjectId(@PathVariable Long projectId) {
         List<Ticket> tickets = ticketService.getAllTicketsByProjectId(projectId);

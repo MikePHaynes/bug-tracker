@@ -31,6 +31,10 @@ public class TicketService {
         return ticketRepository.save(ticket);
     }
 
+    public List<Ticket> getAllTickets() {
+        return ticketRepository.findAll();
+    }
+
     public List<Ticket> getAllTicketsByProjectId(Long projectId) {
         Project project = projectRepository.findById(projectId)
                 .orElseThrow(() -> new ProjectNotFoundException("Project not found with ID: " + projectId));
